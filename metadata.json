@@ -1,0 +1,10 @@
+{
+  "name": "ShowSphere - Live Cinema & Event Booking Engine",
+  "description": "Full-stack movie ticketing and cinema reservation platform featuring real-time seat locking, interactive 3D seat maps, movie snacks ordering, group split payments, Gemini AI movie concierge, and multi-currency checkout.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

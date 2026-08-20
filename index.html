@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShowSphere — Premium Cinema & Live Event Booking Platform</title>
+    <meta name="description" content="ShowSphere real-time cinema and arena ticket booking platform with 3D seat mapping, atomic locks, and group split payments." />
+    <meta property="og:title" content="ShowSphere — Premium Cinema & Live Event Booking" />
+    <meta property="og:description" content="ShowSphere real-time cinema and arena ticket booking platform." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // Install prototype getters and setters so assignment to window.fetch or global.fetch never throws "has only a getter"
+      (function() {
+        try {
+          var props = ['fetch', 'Request', 'Response', 'Headers', 'FormData'];
+          var targets = [];
+          if (typeof Window !== 'undefined' && Window.prototype) targets.push(Window.prototype);
+          if (typeof window !== 'undefined') targets.push(window);
+          if (typeof globalThis !== 'undefined') targets.push(globalThis);
+          if (typeof self !== 'undefined') targets.push(self);
+
+          props.forEach(function(prop) {
+            try {
+              var current = undefined;
+              try { current = window[prop]; } catch (_) {}
+              var holder = current;
+
+              targets.forEach(function(target) {
+                try {
+                  Object.defineProperty(target, prop, {
+                    get: function() {
+                      return holder;
+                    },
+                    set: function(newVal) {
+                      holder = newVal;
+                    },
+                    configurable: true,
+                    enumerable: true
+                  });
+                } catch (_) {}
+              });
+            } catch (_) {}
+          });
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
